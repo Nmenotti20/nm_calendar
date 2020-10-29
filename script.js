@@ -21,7 +21,7 @@ var plan = $("textarea");
 
 for (var i = 0; i < hour.length; i++) {
     if (parseInt(hour[i].id) < moment().format("H")) {
-        plan[i].classList.add("past");    
+        plan[i].classList.add("past") 
     }
     else if(parseInt(hour[i].id) == moment().format("H")) {
         plan[i].classList.add("present");
@@ -31,9 +31,19 @@ for (var i = 0; i < hour.length; i++) {
     }
 };
 
-// save events using local storage
+//Save tasks in local storage when save button in clicked
 // var saveBtn = $(".saveBtn");
 // for (var j = 0; j < saveBtn.length; j++) {
 //     saveBtn[j].addEventListener("click", toDos);
-//     console.log(toDos);
+//     console.log("");
 // }
+
+//storing
+myObj = { "name":"Jane", "age":18, "city":"Chicago" };
+myJSON = JSON.stringify(myObj);                 // storing data
+localStorage.setItem("testJSON", myJSON);   
+
+//retrieving
+text = localStorage.getItem("testJSON");        // retrieving data 
+obj = JSON.parse(text);
+document.write(obj.name);
