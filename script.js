@@ -32,6 +32,40 @@ for (var i = 0; i < hour.length; i++) {
 };
 
 //Save tasks in local storage when save button in clicked
+
+//GET LOCAL STORAGE DATA and populatre the textarea
+var timeSlotArray = $("time-slot");
+
+for (let i = 9; i < timeSlotArray.length; +9, i++) {
+
+    // Check if null
+    var storedData = localStorage.getItem('data${i}');
+    if (storedData) {
+    
+    // Add the text to the right spot    
+    $('[data=${i}]').find("textarea").val(
+        localStorage.getItem('data${i}'));
+    }    
+}
+
+// Add eventListener to save button
+$(".save-button").on("click, saveNotes");
+
+// Save data
+function saveNotes(event) {
+    console.log("*******this", this);
+    // Get the data
+    var timeText = $(event.target).siblings("textarea").val();
+    
+    // Get the ID 
+    var id = $(event.target).closest("time-slot").attr("data");
+    
+    // Store data
+    localStorage.setItem(`data${id}`,timeText);
+}
+
+
+
 // var saveBtn = $(".saveBtn");
 // for (var j = 0; j < saveBtn.length; j++) {
 //     saveBtn[j].addEventListener("click", toDos);
@@ -39,11 +73,11 @@ for (var i = 0; i < hour.length; i++) {
 // }
 
 //storing
-myObj = { "name":"Jane", "age":18, "city":"Chicago" };
-myJSON = JSON.stringify(myObj);                 // storing data
-localStorage.setItem("testJSON", myJSON);   
+// myObj = { "name":"Jane", "age":18, "city":"Chicago" };
+// myJSON = JSON.stringify(myObj);                 // storing data
+// localStorage.setItem("testJSON", myJSON);   
 
-//retrieving
-text = localStorage.getItem("testJSON");        // retrieving data 
-obj = JSON.parse(text);
-document.write(obj.name);
+// //retrieving
+// text = localStorage.getItem("testJSON");        // retrieving data 
+// obj = JSON.parse(text);
+// document.write(obj.name);
