@@ -1,46 +1,34 @@
+// Grab the clock
 const clock = document.getElementById('clock');
 
+// Set Clock to current date and time using momentJS and have it count by 1 second intervals
 setInterval(() => {
     const now = moment();
     const humanReadable = now.format('dddd, MMMM D, YYYY, hh:mm:ssa');
     clock.textContent = humanReadable;
 }, 1000);
 
-// change color of text area depending on whether it's past, present, or future
+// Change color of text area depending on whether it's past, present, or future of current time.
 console.log(moment().format("H"));
 
-var hour = document.getElementById('clock');
-var plan = document.getElementById('textarea');
+//Set variables for timeBlock and plan
+var timeBlock = $(".time-block");
+var plan = $("textarea");
 
-function textareaColor(){
-    var time = new Date();
-    var hours = time.getHours().toString();
-
-    if(hours.length < 2) {
-        hours = '0' + hours;
+//Pass arguments to change the color of the timeBlock based on the current time.
+//If the current moment is less than the timeBlock ID, then make the color "past"
+for (var i = 0; i < timeBlock.length; i++) {
+    if (parseInt(timeBlock[i].id) < moment().format("H"))   {
+    plan[i].classList.add("past");
     }
-    
-    var clockStr = hours + ':' + minutes + ':' + seconds;
-    var planStr = '#' + hours + minutes + seconds;
-
-    clock.textContent = clockStr;
-    plan.textContent = planStr;
-
-    document.id(moment()) = 
-    
-    )
-
-    
-
-for (var i = 0; i < hour.length; i++) {
-    if (parseInt(hour[i].id) < moment().format("H")) {
-        plan[i].classList.add("past") 
+//If the current moment is equal to the timeBlock ID, then make the color "present"
+else if (parseInt(timeBlock[i].id) == moment().format("H")) {
+    plan[i].classList.add("present");
     }
-    else if(parseInt(hour[i].id) == moment().format("H")) {
-        plan[i].classList.add("present");
-    }
-    else if(parseInt(hour[i].id) > moment().format("H")) {
-        plan[i].classList.add("future");
+
+//If the current moment is greater than the timeBlock ID, then make the color "future"
+else if (parseInt(timeBlock[i].id) > moment ().format("H")) {
+    plan[i].classList.add("future");    
     }
 };
 
