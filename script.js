@@ -1,23 +1,36 @@
-console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+const clock = document.getElementById('clock');
 
-// show day on currentDay
-document.querySelector("#currentDay").textContent = moment().format("MMMM Do YYYY, h:mm:ss a");
-
-// const moment = require('moment');
-// let now = moment();
-// console.log(now.format()); 
-
-//     type="text/javascript">
-//     let now = moment();
-//     let time = now.format();
-//     console.log(now.format());
-//     document.getElementById("todaysdate").innerHTML = time;
+setInterval(() => {
+    const now = moment();
+    const humanReadable = now.format('dddd, MMMM D, YYYY, hh:mm:ssa');
+    clock.textContent = humanReadable;
+}, 1000);
 
 // change color of text area depending on whether it's past, present, or future
 console.log(moment().format("H"));
 
-var hour = $(".hour");
-var plan = $("textarea");
+var hour = document.getElementById('clock');
+var plan = document.getElementById('textarea');
+
+function textareaColor(){
+    var time = new Date();
+    var hours = time.getHours().toString();
+
+    if(hours.length < 2) {
+        hours = '0' + hours;
+    }
+    
+    var clockStr = hours + ':' + minutes + ':' + seconds;
+    var planStr = '#' + hours + minutes + seconds;
+
+    clock.textContent = clockStr;
+    plan.textContent = planStr;
+
+    document.id(moment()) = 
+    
+    )
+
+    
 
 for (var i = 0; i < hour.length; i++) {
     if (parseInt(hour[i].id) < moment().format("H")) {
