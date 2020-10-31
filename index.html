@@ -23,17 +23,21 @@
   </head>
 
   <body>
+    <!-- Jumbotron Header -->
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
+
+      <!-- This is the working Time Clock -->
       <p id="clock" class="lead"></p>
     </header>
 
       <!--Begin Div Container-->
       <div class="container">
       
-      <!-- Timeblocks -->
-      <div id="9" class="row time-block">
+      <!-- Timeblocks from 9am to 5pm -->
+      <!-- 9am Timeblock -->
+      <div id="9" class="row time-block" data="9">
         <div class="col-md-1 hour">
           9AM
         </div>
@@ -42,8 +46,9 @@
           <i class="fas fa-save"></i>
         </button>
       </div>
-
-      <div id = "10" class="row time-block">
+      
+      <!-- 10am Timeblock -->
+      <div id = "10" class="row time-block" data="10" >
         <div class="col-md-1 hour">
           10AM
         </div>
@@ -52,8 +57,9 @@
           <i class="fas fa-save"></i>
         </button>
       </div>
-
-      <div id="11" class="row time-block">
+      
+      <!-- 11am Timeblock -->
+      <div id="11" class="row time-block" data="11">
         <div class="col-md-1 hour">
           11AM
         </div>
@@ -63,7 +69,8 @@
         </button>
       </div>
 
-      <div id="12" class="row time-block">
+      <!-- 12pm Timeblock -->
+      <div id="12" class="row time-block" data="12" >
         <div class="col-md-1 hour">
           12PM
         </div>
@@ -72,8 +79,9 @@
           <i class="fas fa-save"></i>
         </button>
       </div>
-
-      <div id="13" class="row time-block">
+     
+      <!-- 1pm Timeblock -->
+      <div id="13" class="row time-block" data="13">
         <div class="col-md-1 hour">
           1PM
         </div>
@@ -82,8 +90,9 @@
           <i class="fas fa-save"></i>
         </button>
       </div>
-
-      <div id="14" class="row time-block">
+      
+      <!-- 2pm Timeblock -->
+      <div id="14" class="row time-block" data="14">
         <div class="col-md-1 hour">
           2PM
         </div>
@@ -92,8 +101,9 @@
           <i class="fas fa-save"></i>
         </button>
       </div>
-
-      <div id="15" class="row time-block">
+      
+      <!-- 3pm Timeblock -->
+      <div id="15" class="row time-block" data="15" >
         <div class="col-md-1 hour">
           3PM
         </div>
@@ -103,7 +113,8 @@
         </button>
       </div>
 
-      <div id="16" class="row time-block">
+      <!-- 4pm Timeblock -->
+      <div id="16" class="row time-block" data="16" >
         <div class="col-md-1 hour">
           4PM
         </div>
@@ -112,8 +123,9 @@
           <i class="fas fa-save"></i>
         </button>
       </div>
-
-      <div id="17" class="row time-block mb-4">
+      
+      <!-- 5pm Timeblock -->
+      <div id="17" class="row time-block mb-4" data="17" >
         <div class="col-md-1 hour">
           5PM
         </div>
@@ -127,13 +139,17 @@
       </div>
      
     <!--JavaScript links--> 
+    <!--AJAX links-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
      
+    <!--cdn.jsdeliver link-->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 
+    <!--MomentJS link-->
     <script src="https://MomentJS.com/downloads/moment.js"></script> 
 
+    <!--Link to script.js file-->  
     <script src="script.js"></script>
 
   </body>

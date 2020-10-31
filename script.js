@@ -8,13 +8,11 @@ setInterval(() => {
     clock.textContent = humanReadable;
 }, 1000);
 
-// Change color of text area depending on whether it's past, present, or future of current time.
-console.log(moment().format("H"));
-
 //Set variables for timeBlock and plan
 var timeBlock = $(".time-block");
 var plan = $("textarea");
 
+//**************************************************************************************************************************************************************/
 //Pass arguments to change the color of the timeBlock based on the current time.
 //If the current moment is less than the timeBlock ID, then make the color "past"
 for (var i = 0; i < timeBlock.length; i++) {
@@ -32,53 +30,72 @@ else if (parseInt(timeBlock[i].id) > moment ().format("H")) {
     }
 };
 
+//*************************************************************************************************************************************************************/
 //Save tasks in local storage when save button in clicked
 
-//GET LOCAL STORAGE DATA and populatre the textarea
-var timeSlotArray = $("time-slot");
+// Create a variable for the time slot array
+var timeSlotArray = $(".time-block");
+timeSlotArray.each(function(timeSlotIndex)  {
+    
+    // Get the current time
+    var currentTime = moment().hours();
+    
+    // Get the block time
+    var timeSlotTime = parseInt($(timeSlotArray[timeSlotIndex]).attr("data"));
+})
 
-for (let i = 9; i < timeSlotArray.length; +9, i++) {
-
-    // Check if null
-    var storedData = localStorage.getItem('data${i}');
+//Get local stored data and populate the textarea
+// var timeSlotArray = $(".time-slot");
+for (let i = 9; i < timeSlotArray.length + 9; i++) {
+    //check if null
+    var storedData = localStorage.getItem(`hour-${i}`);
+    console.log("*******", storedData);
     if (storedData) {
-    
-    // Add the text to the right spot    
-    $('[data=${i}]').find("textarea").val(
-        localStorage.getItem('data${i}'));
-    }    
+        //add the text to the right spot
+        $(`[data=${i}]`).find("textarea").val( storedData);
+    }
 }
 
-// Add eventListener to save button
-$(".save-button").on("click, saveNotes");
+//add event listender to save button
+$(".save-button").on("click",saveNotes);
 
-// Save data
+//save data
 function saveNotes(event) {
-    console.log("*******this", this);
-    // Get the data
+    //get the data
     var timeText = $(event.target).siblings("textarea").val();
-    
-    // Get the ID 
-    var id = $(event.target).closest("time-slot").attr("data");
-    
-    // Store data
+    //get the id too
+    var id = $(event.target).closest(".time-slot").attr("data");
+    //store data
     localStorage.setItem(`data${id}`,timeText);
-}
+};
 
+//GET LOCAL STORAGE DATA and populatre the textarea
+// var timeSlotArray = $("time-slot");
 
+// for (let i = 9; i < timeSlotArray.length; +9, i++) {
 
-// var saveBtn = $(".saveBtn");
-// for (var j = 0; j < saveBtn.length; j++) {
-//     saveBtn[j].addEventListener("click", toDos);
-//     console.log("");
+//     // Check if null
+//     var storedData = localStorage.getItem('data${i}');
+//     if (storedData) {
+    
+//     // Add the text to the right spot    
+//     $('[data=${i}]').find("textarea").val(
+//         localStorage.getItem('data${i}'));
+//     }    
 // }
 
-//storing
-// myObj = { "name":"Jane", "age":18, "city":"Chicago" };
-// myJSON = JSON.stringify(myObj);                 // storing data
-// localStorage.setItem("testJSON", myJSON);   
+// // Add eventListener to save button
+$(".save-button").on("click, saveNotes");
 
-// //retrieving
-// text = localStorage.getItem("testJSON");        // retrieving data 
-// obj = JSON.parse(text);
-// document.write(obj.name);
+// // Save data
+// function saveNotes(event) {
+//     console.log("*******this", this);
+//     // Get the data
+//     var timeText = $(event.target).siblings("textarea").val();
+    
+//     // Get the ID 
+//     var id = $(event.target).closest("time-slot").attr("data");
+    
+//     // Store data
+//     localStorage.setItem(`data${id}`,timeText);
+// }
